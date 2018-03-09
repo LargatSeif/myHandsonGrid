@@ -57,8 +57,8 @@ export class App2Component implements OnInit {
     }
 
     this.settingsObj = {
-      data: [testData],
-      colHeaders: [[daysN],[days] ],
+      data: [daysN,days,testData ],
+      colHeaders: false,
       fixedRowsTop: 2,
       rowHeaders: false,
       columns: colsOpts
@@ -66,28 +66,7 @@ export class App2Component implements OnInit {
   }
   selection: string = '';
 
-  onAfterSelection($event) {
-    let [sRow, sCol, eRow, eCol] = $event.hotInstance.getSelected();
-    sCol = Handsontable.helper.spreadsheetColumnLabel(sCol);
-    eCol = Handsontable.helper.spreadsheetColumnLabel(eCol);
-
-    let text = `${sCol}${sRow + 1}`;
-    let textEnd = `${eCol}${eRow + 1}`;
-
-    if (text !== textEnd) {
-      text = `${text}:${textEnd}`
-    }
-
-    this.selection = text;
-  }
-
-  onAfterDeselect() {
-    this.selection = '';
-  }
-
-  click() {
-    console.log(this._hotRegisterer.getInstance(this.instance).getCell(2, 0).textContent);
-  }
+  
 
   ngOnInit() {
   }

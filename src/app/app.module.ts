@@ -20,7 +20,7 @@ import { AppComponent } from './app.component';
 import { App3Component } from './app3/app3.component';
 
 const routes:Routes = [
-  {path:'',component:App3Component},
+  {path:'',component:App2Component},
 ]
 
 @NgModule({
