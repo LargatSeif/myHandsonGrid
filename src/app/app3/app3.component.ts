@@ -14,40 +14,42 @@ export class App3Component implements OnInit {
   fetched: boolean = false;
   error: boolean = false;
   public settingsObj: Handsontable.GridSettings;
+  public settingsObj1: Handsontable.GridSettings;
 
-  columns: any[] = [
-    { data: 'name', title: 'Name' },
-    { data: 'age', title: 'Age', type: 'numeric' },
-    { data: 'balance', title: 'Balance' },
-    { data: 'company', title: 'Company' },
-    { data: 'gender', title: 'Gender', type: 'dropdown', source: ['male', 'female'] },
-    { data: 'phone', title: 'Phone' },
-    { data: 'registered', title: 'Registered' },
-    { data: 'isActive', title: 'Is active?', type: 'checkbox' },
-    {
-      data: 'about',
-      title: 'About',
-      renderer(hotInstance, td, row, column, prop, value, cellProperties) {
-        const limit = 50;
-        
-        if (!value) {
-          value = '';
-        }
 
-        value = value.length > limit ? `${value.substr(0, limit - 3)}...` : value;
 
-        Handsontable.renderers.TextRenderer.apply(this, [hotInstance, td, row, column, prop, value, cellProperties]);
-      }
-    },
-  ];
-
-  constructor() { 
+  constructor(private _hotRegisterer: HotTableRegisterer) {
+    const hotInstance = this._hotRegisterer.getInstance(this.instance);
+    var nestedObjects = [
+      ['1','2','3','4','5'],
+      ['1','2','3','4','5'],
+      ['1','2','3','4','5'],
+      ['1','2','3','4','5'],
+    ]
     this.settingsObj = {
-      data: Handsontable.helper.createSpreadsheetData(5,10),
+      data: nestedObjects ,
+      minSpareRows: 1,
+      minSpareCols: 0,
       fixedRowsTop: 1,
+      autoColumnSize: { useHeaders: true },
+      colHeaders: false,
       rowHeaders: false,
-      columns: this.columns
+      contextMenu: true
+      //columns: this.columns
     };
+    this.settingsObj1 = {
+      data: [['Projects '],['Projet1'],['Projet2'],['Projet3']],
+      minSpareRows: 0,
+      minSpareCols: 0,
+      fixedRowsTop: 1,
+      autoColumnSize: { useHeaders: true },
+      colHeaders: false,
+      rowHeaders: false,
+      contextMenu: true
+      //columns: this.columns
+    };
+
+
   }
 
   ngOnInit() {

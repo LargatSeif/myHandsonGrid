@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+
+      <ngx-datatable>
+
+        <ngx-datatable-column name="Projects" [width]="200">
+          <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>              
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ng-container *ngFor="let day of days" >
+          <ngx-datatable-column name="{{day}}" [width]="40">
+            <ng-template let-row="day" let-value="value" ngx-datatable-cell-template>
+              {{value}}
+            </ng-template>
+          </ngx-datatable-column>
+        </ng-container>
+        
+      </ngx-datatable>
+
+      <ngx-datatable [columnMode]="'force'">
+
+          <ngx-datatable-column name="Clients" [width]="100" class="text-center">
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >              
+              {{value}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Missions" [width]="100">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>              
+              </ng-template>
+            </ngx-datatable-column>
+  
+          <ng-container *ngFor="let day of daysN" >
+            <ngx-datatable-column name="{{day}}" [width]="40">
+              <ng-template let-row="day" let-value="value" ngx-datatable-cell-template>
+                {{value}}
+              </ng-template>
+              <ng-template let-row="day" let-value="day" ngx-datatable-cell-template>
+                  {{value}}
+                </ng-template>
+            </ngx-datatable-column>
+          </ng-container>
+          
+        </ngx-datatable>
+
+    </div>
+  </div>
+</div>

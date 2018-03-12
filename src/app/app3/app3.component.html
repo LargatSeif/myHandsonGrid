@@ -2,7 +2,16 @@
   <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-10">
-      <hot-table [hotId]="instance" [settings]="settingsObj"></hot-table>
+      <div class="row">
+        <div class="col-md-2">
+            <hot-table [hotId]="instance1" [settings]="settingsObj1"></hot-table>
+        </div>
+        <div class="col-md-10">
+            <hot-table [hotId]="instance" [settings]="settingsObj"></hot-table>
+        </div>
+      </div>
+     
+      
     </div>
   </div>
 </div>
