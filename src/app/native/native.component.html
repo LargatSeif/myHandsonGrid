@@ -1,20 +1,30 @@
+<div class="container-fluid">
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-10">
+    <div class="table-responsive">
     <table class="table table-hover table-bordered table-striped tg">
       <thead>
         <tr>
 
-          <th class="tg-031e text-center" colspan="2">PROJETS</th>
-          <th class="tg-031e text-center" *ngFor="let day of daysN" style="color:grey;font-weight: 700 !important;">
-            {{ day }}
-          </th>
+          <th class="tg-031e text-center projects" colspan="2">PROJETS</th>
+          <ng-container *ngFor="let day of daysN;let i = index">
+            <th class="tg-031e text-center week-end" *ngIf="day == 'D' || day == 'S'" >             
+                <span class="">{{ day }}</span> 
+            </th>
+
+            <th class="tg-031e text-center simple-day" *ngIf="day != 'D' && day != 'S'" >             
+                <span >{{ day }}</span> 
+            </th>
+          </ng-container>
+          
           <th class="blue text-center align-middle" colspan="2" rowspan="2">Total</th>
         </tr>
-        <tr>
-          <td class="tg-031e text-center" style="font-weight: 700 !important;color:blue;">CLIENT</td>
-          <td class="tg-031e text-center" style="font-weight: 700 !important;color:blue;">MISSION</td>
-          <td class="tg-031e text-center blue" [attr.data-date]='day.day+"-"+day.month+"-"+day.year' *ngFor="let day of days">
-            {{ day.day }}
+
+        <tr class="type-project">
+          <td class="tg-031e text-center custmor">CLIENT</td>
+          <td class="tg-031e text-center mission">MISSION</td>
+          <td class="tg-031e text-center blue days-on" [attr.data-date]='day.day+"-"+day.month+"-"+day.year' *ngFor="let day of days">
+            <span class="day-on">{{ day.day }}</span>
           </td>
 
         </tr>
@@ -23,11 +33,11 @@
       <tbody>
         <!-- PROJECTS -->
         <tr *ngFor="let project of projects">
-          <td class="tg-031e  text-center">{{project.client}}</td>
-          <td class="tg-031e  text-center">{{project.mission}}</td>
+          <td class="tg-031e  text-center custmor">{{project.client}}</td>
+          <td class="tg-031e  text-center mission">{{project.mission}}</td>
           <td class="tg-031e  text-center" (click)="toggleEdit($event)" [attr.data-date]="item.date" *ngFor="let item of project.dateP;let i=index">
               <ng-container *ngIf="item.value != null">
-                <select [(ngModel)]="item.value" (ngModelChange)="change(project,i)">
+                <select [(ngModel)]="item.value" (ngModelChange)="change(project,i)" class="select-cra">
                     <option [ngValue]="null"></option>
                     <option [ngValue]="1">1</option>
                     <option [ngValue]="1/2">1/2</option>
@@ -36,7 +46,7 @@
                   </select>
               </ng-container>
               <ng-container *ngIf="item.value == null">
-                  <select [(ngModel)]="item.value" (ngModelChange)="change(project,i)">
+                  <select [(ngModel)]="item.value" (ngModelChange)="change(project,i)" class="select-cra">
                       <option [ngValue]="null" selected>#</option>
                       <option [ngValue]="1">1</option>
                       <option [ngValue]="1/2">1/2</option>
@@ -53,7 +63,9 @@
     </table>
 
   </div>
+  </div>
   <div class="col-md-12">
     <pre style="font-size:10px;">{{projects[1] |json}}</pre>
   </div>
+</div>
 </div>
