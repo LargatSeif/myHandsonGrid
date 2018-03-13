@@ -9,6 +9,7 @@ import { IMultiSelectOption, IMultiSelectSettings } from 'angular-2-dropdown-mul
 })
 export class NativeComponent implements OnInit {
     public currentMonth;
+    public currentYear;
     public days = [];
     public daysN = [];
     public count: number;
@@ -66,43 +67,61 @@ export class NativeComponent implements OnInit {
     ];
 
     constructor() {
+        this.initTimeTable();
+    }
+
+    initTimeTable(){
         let now = moment_(new Date());
         let days = [];
         this.currentMonth = now.get('month') + 1;
+        this.currentYear = now.get('year');
+
         this.count = now.daysInMonth();
-
-        for (let i = 1; i <= this.count; i++) {
-            let current = moment_(this.currentMonth + "-" + i + "-" + now.year(), "MM-DD-YYYY");
-            this.days.push({
-                day: current.date(),
-                month: current.month() + 1,
-                year: current.year()
-            });
-        }
-
-        for (let i = 1; i <= this.count; i++) {
-            this.daysN.push(moment_(now.year() + "-" + now.get('month') + "-" + i + "").locale('fr').format("ddd")[0].toUpperCase());
-        }
+        this.days = this.getDateDays(this.currentMonth,this.currentYear);
+        this.daysN = this.getDateDaysN(this.currentMonth,this.currentYear);
     }
 
-    getDateData(currentMonth ,currentYear){
-        let now = moment_(new Date(""));
-        let days = [];
-        //this.currentMonth = now.get('month') + 1;
-        this.count = now.daysInMonth();
+    changeYear(currentYear){
+        console.log(currentYear)
+        this.currentYear = currentYear;
 
-        for (let i = 1; i <= this.count; i++) {
-            let current = moment_(currentMonth + "-" + i + "-" + now.year(), "MM-DD-YYYY");
-            this.days.push({
+        this.days = this.getDateDays(this.currentMonth,this.currentYear);
+        this.daysN = this.getDateDaysN(this.currentMonth,this.currentYear);
+        
+    }
+
+    changeMonth(currentMonth){
+        console.log(currentMonth)
+        this.currentMonth = currentMonth;
+        this.days = this.getDateDays(this.currentMonth,this.currentYear);
+        this.daysN = this.getDateDaysN(this.currentMonth,this.currentYear);
+        
+    }
+
+    getDateDays(currentMonth ,currentYear){
+        let now = moment_(currentMonth+"-01-"+currentYear,"MM-DD-YYYY");
+        let days = [];
+
+        for (let i = 1; i <= now.daysInMonth(); i++) {
+            let current = moment_(currentMonth + "-" + i + "-" + currentYear, "MM-DD-YYYY");
+            days.push({
                 day: current.date(),
                 month: current.month() + 1,
                 year: current.year()
             });
         }
+        return days;
 
-        for (let i = 1; i <= this.count; i++) {
-            this.daysN.push(moment_(now.year() + "-" + now.get('month') + "-" + i + "").locale('fr').format("ddd")[0].toUpperCase());
+        
+    }
+
+    getDateDaysN(currentMonth ,currentYear){
+        let now = moment_(currentMonth+"-01-"+currentYear,"MM-DD-YYYY");
+        let daysN=[];
+        for (let i = 1; i <= now.daysInMonth(); i++) {
+            daysN.push(moment_(now.year() + "-" + now.get('month') + "-" + i + "").locale('fr').format("ddd")[0].toUpperCase());
         }
+        return daysN;
     }
 
     ngOnInit() {
