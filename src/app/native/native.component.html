@@ -2,17 +2,28 @@
   <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-10 text-center">
-      <select [(ngModel)]="currentMonth" (ngModelChange)="changeMonth(currentMonth)">
-        <option selected [ngValue]="0">Select a month</option>
-        <option [ngValue]="1">January</option>
-        <option [ngValue]="2">Februray</option>
-        <option [ngValue]="3">March</option>
+      <a class="btn" (click)="prevMonth($event)" ><i class="fa fa-chevron-left"></i></a>
+      <select [(ngModel)]="currentMonth" (ngModelChange)="changeMonth(currentMonth)" id="month">
+        <option selected [ngValue]="0" selected disabled>Select a month</option>
+        <option [ngValue]="1">Janvier</option>
+        <option [ngValue]="2">Février</option>
+        <option [ngValue]="3">Mars</option>
+        <option [ngValue]="4">May</option>
+        <option [ngValue]="5">Avril</option>
+        <option [ngValue]="6">Juin</option>
+        <option [ngValue]="7">Juillet</option>
+        <option [ngValue]="8">Aout</option>
+        <option [ngValue]="9">Septembre</option>
+        <option [ngValue]="10">Octobre</option>
+        <option [ngValue]="11">Novembre</option>
+        <option [ngValue]="12">Décembre</option>
       </select>
-      <select [(ngModel)]="currentYear" (ngModelChange)="changeYear(currentYear)">
-        <option [ngValue]="0" selected>Select a year</option>
+      <select [(ngModel)]="currentYear" (ngModelChange)="changeYear(currentYear)" id="year">
+        <option [ngValue]="0" selected disabled>Select a year</option>
         <option [ngValue]="2017">2017</option>
         <option [ngValue]="2018">2018</option>
       </select>
+      <a class="btn" (click)="nextMonth($event)" ><i class="fa fa-chevron-right"></i></a>
     </div>
     <div class="col-md-2"></div>
     <div class="col-md-10">
@@ -20,7 +31,7 @@
         <table class="table table-hover table-bordered table-striped tg">
           <thead>
             <tr>
-
+              <th style="border:0px solid #fff !important;"></th>
               <th class="tg-031e text-center projects" colspan="2">PROJETS</th>
               <ng-container *ngFor="let day of daysN;let i = index">
                 <th class="tg-031e text-center week-end" *ngIf="day == 'D' || day == 'S'">
@@ -32,22 +43,36 @@
                 </th>
               </ng-container>
 
-              <th class="blue text-center" colspan="2" rowspan="2">Total</th>
+              <th class="blue text-center" colspan="2">Total</th>
             </tr>
 
             <tr class="type-project">
+              <td></td>
               <td class="tg-031e text-center custmor">CLIENT</td>
               <td class="tg-031e text-center mission">MISSION</td>
               <td class="tg-031e text-center blue days-on" [attr.data-date]='day.day+"-"+day.month+"-"+day.year' *ngFor="let day of days">
                 <span class="day-on">{{ day.day }}</span>
               </td>
-
             </tr>
-
           </thead>
           <tbody>
             <!-- PROJECTS -->
             <tr *ngFor="let project of projects">
+              <td class="text-center" style="width:80px;border:0px solid;">
+
+                <button *ngIf="project.vider" type="button" class="btn btn-sm" style="border-radius:50%;background-color:grey;color:#fff"
+                  (click)="clear(project)">
+                  <i class="fa fa-ban"></i>
+                </button>
+                <button *ngIf="project.completer" type="button" class="btn btn-sm" style="border-radius:50%;background-color:grey;color:#fff"
+                  (click)="complete(project)">
+                  <i class="fa fa-chevron-right"></i>
+                </button>
+                <button *ngIf="project.supprimer" type="button" class="btn btn-sm" style="border-radius:50%;background-color:grey;color:#fff"
+                  (click)="delete(project)">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </td>
               <td class="tg-031e  text-center custmor">{{project.client}}</td>
               <td class="tg-031e  text-center mission">{{project.mission}}</td>
               <td class="tg-031e  text-center" [attr.data-date]="item.date" *ngFor="let item of project.dateP;let i=index">
@@ -76,8 +101,60 @@
             </tr>
           </tbody>
         </table>
-
       </div>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-10 text-center ">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="exampleTextarea" class="float-left font-weight-bold">Ajouter un commentaire</label>
+            <textarea class="form-control" id="commentaire" rows="3" placeholder="écrivez-ici vos remarques / commentaires sur un des projets du CRA"></textarea>
+          </div>
+
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-12">
+              <span class="float-left font-weight-bold">Downloads are here !</span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-2" style="min-height:100px !important;border:1px solid #17498f;padding-top:5%">
+              <button type="button" class="btn btn-sm align-middle  " style="border-radius:50%;background-color:#17498f;color:#fff;">
+                <i class="fa fa-arrow-down"></i>
+              </button>
+            </div>
+            <div class="col-md-2" style="min-height:100px !important;border:1px solid #17498f;padding-top:5%">
+              <button type="button" class="btn btn-sm align-middle" style="border-radius:50%;background-color:#17498f;color:#fff;">
+                <i class="fa fa-plus"></i>
+              </button>
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-2"></div>
+    <div class="col-md-10 text-center ">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-3">
+          <button class="btn btn-sm btn-primary btn-block" style="border-radius: 30px">Enregistrer</button>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-sm btn-default" style="border-radius: 30px;">Annuler</button>
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-sm btn-primary btn-block" style="border-radius: 30px">Soumettre</button>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
