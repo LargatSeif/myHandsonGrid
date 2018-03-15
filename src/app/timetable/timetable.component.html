@@ -29,118 +29,97 @@
         <i class="fa fa-chevron-right"></i>
       </a>
     </div>
-
     <!-- cra begin -->
-
     <div class="col-md-12">
       <ng-container *ngFor="let rubrique of currrentCra.rubriques">
-        <table class="table table-hover table-bordered table-striped tg">
-
+        <table class="table table-hover table-striped tg">
           <thead>
-
-            <ng-container *ngIf="rubrique.libelleRubrique == 'PROJETS'">
+            <ng-container *ngIf="rubrique.libelleRubrique == 'PROJETS'" >
               <tr>
                 <th style="border:0px solid #fff !important;">Actions</th>
-
                 <th class="tg-031e text-center projects" colspan="2">{{rubrique.libelleRubrique}}</th>
-
-
-                <ng-container *ngFor="let day of daysN;let i = index">
+                <ng-container *ngFor="let day of daysN;let i = index" >
                   <th class="tg-031e text-center week-end" *ngIf="day == 'D' || day == 'S'">
-                    <span class="">{{ day }}</span>
+                    <span>{{ day }}</span>
                   </th>
                   <th class="tg-031e text-center simple-day" *ngIf="day != 'D' && day != 'S'">
                     <span>{{ day }}</span>
                   </th>
                 </ng-container>
-
                 <th class="blue text-center" colspan="2">Total</th>
               </tr>
-              <tr>
-                <th style="border:0px solid #fff !important;"></th>
-                <th class="tg-031e text-center" *ngFor="let sousRubrique of rubrique.libelleSousRubrique">{{sousRubrique.titre}}</th>
-
-                <th *ngFor="let day of daysN;let i = index" class="tg-031e text-center">{{i+1}}</th>
+              <tr class="type-project">
+                <th style="border:none;"></th>
+                <th class="tg-031e text-center sous-rubrique" *ngFor="let sousRubrique of rubrique.libelleSousRubrique">{{sousRubrique.titre}}</th>
+                <th *ngFor="let day of daysN;let i = index" class="tg-031e blue days-on text-center">
+                  <span class="day-on">{{i+1}}</span>
+                </th>
               </tr>
             </ng-container>
 
             <ng-container *ngIf="rubrique.libelleRubrique == 'PROJET NON FACTURABLE'">
-              <tr>
-                <th style="width:80px;border:0px solid #fff !important;">
+              <tr class="bgNone">
+               <th style="border:none!important;" class="text-center btn-group-cra">
                   Actions
                 </th>
-
-                <th class="tg-031e text-center projects" colspan="2">{{rubrique.libelleRubrique}}</th>
-
+                <th class="tg-031e text-center projects-no-fact" colspan="2">{{rubrique.libelleRubrique}}</th>
                 <ng-container *ngFor="let day of daysN;let i = index">
-                  <th class="tg-031e text-center week-end" *ngIf="day == 'D' || day == 'S'">
+                  <th class="tg-031e text-center week-end no-day" *ngIf="day == 'D' || day == 'S'">
                     <span class=""></span>
                   </th>
-                  <th class="tg-031e text-center simple-day" *ngIf="day != 'D' && day != 'S'">
+                  <th class="tg-031e text-center simple-day no-day" *ngIf="day != 'D' && day != 'S'">
+                    <span></span>
+                  </th>
+                </ng-container>
+                <th class="blue text-center" colspan="2">Total</th>
+              </tr>
+            </ng-container>
+
+            <ng-container *ngIf="rubrique.libelleRubrique == 'HORS PROJET'">
+              <tr class="bgNone">
+                <th style="border:none!important;" class="text-center btn-group-cra">
+                  Actions
+                </th>
+                <th class="tg-031e text-center projects-no-fact">{{rubrique.libelleRubrique}}
+                </th>
+                <ng-container *ngFor="let day of daysN;let i = index">
+                  <th class="tg-031e text-center week-end no-day" *ngIf="day == 'D' || day == 'S'">
+                    <span class=""></span>
+                  </th>
+                  <th class="tg-031e text-center simple-day no-day" *ngIf="day != 'D' && day != 'S'">
                     <span></span>
                   </th>
                 </ng-container>
 
                 <th class="blue text-center" colspan="2">Total</th>
               </tr>
-
             </ng-container>
 
-            <ng-container *ngIf="rubrique.libelleRubrique == 'HORS PROJET'">
+            <ng-container *ngIf="rubrique.libelleRubrique == 'REGULARISATION'">
               <tr>
                 <th style="border:0px solid #fff !important;">
                   Actions
                 </th>
-
-                <th class="tg-031e text-center projects" colspan="2">{{rubrique.libelleRubrique}}</th>
-
+                <th class="tg-031e text-center projects-no-fact" colspan="2">{{rubrique.libelleRubrique}}</th>
 
                 <ng-container *ngFor="let day of daysN;let i = index">
-                  <th class="tg-031e text-center week-end" *ngIf="day == 'D' || day == 'S'">
+                  <th class="tg-031e text-center week-end no-day" *ngIf="day == 'D' || day == 'S'">
                     <span class=""></span>
                   </th>
-                  <th class="tg-031e text-center simple-day" *ngIf="day != 'D' && day != 'S'">
+                  <th class="tg-031e text-center simple-day no-day" *ngIf="day != 'D' && day != 'S'">
                     <span></span>
                   </th>
                 </ng-container>
 
                 <th class="blue text-center" colspan="2">Total</th>
               </tr>
-
             </ng-container>
-
-            <ng-container *ngIf="rubrique.libelleRubrique == 'REGULARISATION'">
-                <tr>
-                  <th style="border:0px solid #fff !important;">
-                    Actions
-                  </th>
-  
-                  <th class="tg-031e text-center projects" colspan="2">{{rubrique.libelleRubrique}}</th>
-  
-  
-                  <ng-container *ngFor="let day of daysN;let i = index">
-                    <th class="tg-031e text-center week-end" *ngIf="day == 'D' || day == 'S'">
-                      <span class=""></span>
-                    </th>
-                    <th class="tg-031e text-center simple-day" *ngIf="day != 'D' && day != 'S'">
-                      <span></span>
-                    </th>
-                  </ng-container>
-  
-                  <th class="blue text-center" colspan="2">Total</th>
-                </tr>
-  
-              </ng-container>
 
           </thead>
           <tbody>
             <!-- rubriques -->
-
-
             <tr *ngFor="let ligne of rubrique.lignes">
-
               <td class="text-center" style="width:100px;border:0px solid;">
-
                 <ng-container *ngIf="ligne.jours.afficheCompleterEtVider == true">
                   <button type="button" class="btn btn-sm" style="border-radius:50%;background-color:red;color:blue" (click)="clear(project)">
                     <i class="fa fa-ban"></i>V
@@ -149,16 +128,14 @@
                     <i class="fa fa-chevron-right"></i>C
                   </button>
                 </ng-container>
-
                 <ng-container *ngIf="ligne.jours.afficheSupprimer == true">
                   <button type="button" class="btn btn-sm" style="border-radius:50%;background-color:grey;color:#fff" (click)="delete(project)">
                     <i class="fa fa-trash"></i>S
                   </button>
                 </ng-container>
-
               </td>
               <ng-container *ngIf="rubrique.libelleRubrique == 'HORS PROJET'">
-                <td class="tg-031e  text-center hp" colspan="2">
+                <td class="tg-031e  text-center custmor" colspan="2">
                   <a title="">{{ligne.composantsRubrique[0].label}} </a>
                 </td>
               </ng-container>
@@ -166,9 +143,8 @@
               <ng-container *ngIf="rubrique.libelleRubrique != 'HORS PROJET'">
                 <td class="tg-031e  text-center custmor" *ngFor="let composant of ligne.composantsRubrique">
                   <a title="{{composant.tooltip}} ">{{composant.label}} </a>
-                </td>
+                </td>                
               </ng-container>
-
 
               <td class="tg-031e  text-center" *ngFor="let jour of ligne.jours.joursAffectation;let i=index">
                 <ng-container *ngIf="jour.taux != null">
@@ -190,14 +166,11 @@
                   </select>
                 </ng-container>
               </td>
-
-              <td class="tg-031e  text-center {{ligne.jours.totaleStyle}}">
+              <td class="tg-031e  text-center {{ligne.jours.totaleStyle}}" colspan="2">
                 {{ligne.jours.totale}}
                 <!--{{ project.joursT|number: '1.1-2' }}-->
               </td>
-
             </tr>
-
           </tbody>
         </table>
       </ng-container>
@@ -205,7 +178,5 @@
     <div class="col-md-12">
       <textarea name="commentaire" id="" cols="60" rows="4">{{currrentCra.commentaire}}</textarea>
     </div>
-
   </div>
-
 </ng-container>

@@ -1,3 +1,290 @@
-th.projects[_ngcontent-c1]{
-    width:255px !important;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+
+.tg {
+  min-width: 1064px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  position: relative;
+  margin-bottom: 0px;
+  overflow-y: hidden;
+}
+
+.table-responsive {
+  overflow-y: hidden;
+}
+.tg tr{position: relative;}
+.tg td {
+    height: 35px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  padding: 0px;
+  border: none;
+  border-bottom: 1px solid #e6e6e6;
+  overflow: hidden;
+  word-break: normal;
+  vertical-align: middle;
+}
+
+.tg th {
+    height: 35px;
+  width: 30px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  font-weight: normal;
+  border: none;
+  word-break: normal;
+  color: #939393;
+  padding:.0rem;
+  vertical-align: bottom;
+}
+
+.tg th:nth-child(even) {
+  background-color: white;
+}
+
+.tg th:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.tg td:nth-child(odd) {
+  background-color: white;
+}
+
+.tg td:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.tg td:first-child, .tg th:first-child {
+  background-color: white;
+}
+.btn-group-cra{
+  width: 80px;
+  border:none!important;
+}
+.btn-group-cra .btn{
+  width: auto;
+  background: none;
+  padding: 0;
+  display: inline-block;
+}
+.btn-group-cra .btn-delete{
+    position: absolute;
+    left: 58px;
+    z-index: 100;
+    margin-top: -12px;
+}
+.tg td.blue {
+    position: relative;
+    z-index: 0;
+  font-weight: 700!important;
+  color: #17498f;
+  border: none;
+      border-bottom: 1px solid #e6e6e6;
+      background: transparent!important;
+}
+.tg td.blue:nth-child(even){
+  background-color: #f9f9f9!important;
+}
+.tg td.blue:nth-child(odd){
+  background-color: #fff!important;
+}
+.tg th.blue {
+  position: relative;
+  z-index: 0;
+  font-weight: 700!important;
+  color: #17498f;
+  border: none;
+      border-bottom: 1px solid #e6e6e6;
+      background: transparent !important;
+}
+
+.day-on {
+  display: block;
+  width: 96%;
+  margin: 0 auto;
+}
+.day-on::after{
+    content: '';
+   position: absolute;
+    width: 96%;
+  border-bottom: 4px solid #f1bd00;
+  bottom: 1px;
+  left: 0;
+}
+.tg .projects {
+  text-align: center;
+  text-transform: uppercase;
+  color: #17498f;
+  font-weight: 700!important;
+  border: 1px solid #e6e6e6;
+  vertical-align: middle;
+}
+.tg .projects-no-fact {
+	width: 240px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #17498f;
+  font-weight: 700!important;
+  border: none;
+  vertical-align: middle;
+}
+.tg.bgNone{}
+.bgNone td{border-top:1px solid #e6e6e6;}
+.tg .no-day{
+  background: #fff!important;
+    position: relative;
+    z-index: 10;
+}
+.tg tr.type-project th.sous-rubrique {
+  width: 120px;
+    height: 25px;
+    background: #fff!important;
+  border: 1px solid #e6e6e6;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #17498f;
+  text-align: center;
+  vertical-align: middle;
+}
+.tg tr.type-project th.days-on{
+    vertical-align: top;
+    height: 25px;
+}
+
+.tg td.custmor{
+  width: 120px;
+  border: 1px solid #e6e6e6;
+  color: #939393;
+  font-weight: 400;
+  background-color: #fff;
+}
+
+
+select.select-cra::-ms-expand {
+  display: none;
+}
+
+.select-cra {
+    position: relative;
+    z-index: 2;
+  width: 20px;
+  -webkit-appearance: none;
+  text-align: center;
+  text-align-last: center;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor:pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  color: #a7a7a7;
+}
+
+
+
+
+/***** for week-end days class **/
+
+.week-end {}
+
+
+th.week-end::after {
+  background-color: black;
+  position: absolute;
+      top: 71px;
+  height: 100%;
+  background: #fff url( "/assets/images/hachure_tab.png") 0 0 no-repeat;
+ -webkit-background-size: cover;
+ background-size: cover;
+  width: 30px;
+  content: '';
+  z-index: 1;
+  display: flex;
+}
+
+
+/**** for comment and upload cra ****/
+.craForm{
+  margin-top: 4rem;
+}
+
+.craForm label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #040404;
+}
+.craForm .form-control{
+  border-radius: 0px;
+  border:1px solid #e6e6e6;
+}
+.craForm textarea.form-control {
+    resize: none;
+    height: 150px;
+    overflow-y: auto;
+
+}
+.craForm .form-control::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #b0b2b3;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 300;
+}
+.craForm .form-control::-moz-placeholder { /* Firefox 19+ */
+  color: #b0b2b3;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 300;
+}
+.craForm .form-control:-ms-input-placeholder { /* IE 10+ */
+  color: #b0b2b3;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 300;
+}
+.craForm .form-control:-moz-placeholder { /* Firefox 18- */
+  color: #b0b2b3;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.inputfile + label {
+  width: 85%;
+      font-size: 1.25em;
+    font-weight: 700;
+    color: #fff;
+    background-color: transparent;
+    display: block;
+    text-align: center;
+    height: 120px;
+    line-height: 120px;
+    border: 1px solid #004d9d;
+    margin: 0 auto;
+}
+
+.inputfile + label i{
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #d2d2d2;
+  border-radius: 50%;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+   
+}
+.inputfile + label {
+  cursor: pointer; /* "hand" cursor */
 }
