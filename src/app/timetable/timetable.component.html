@@ -32,7 +32,7 @@
     <!-- cra begin -->
     <div class="col-md-12">
       <ng-container *ngFor="let rubrique of currrentCra.rubriques">
-        <table class="table table-hover table-striped tg">
+        <table class="table table-hover table-striped tg {{rubrique.libelleRubrique}}">
           <thead>
             <ng-container *ngIf="rubrique.libelleRubrique == 'PROJETS'" >
               <tr>
@@ -135,7 +135,7 @@
                 </ng-container>
               </td>
               <ng-container *ngIf="rubrique.libelleRubrique == 'HORS PROJET'">
-                <td class="tg-031e  text-center custmor" colspan="2">
+                <td class="tg-031e  text-center custmor" colspan="1">
                   <a title="">{{ligne.composantsRubrique[0].label}} </a>
                 </td>
               </ng-container>

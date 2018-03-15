@@ -58,6 +58,25 @@
 .tg td:first-child, .tg th:first-child {
   background-color: white;
 }
+.tg.HORS.PROJET th:nth-child(odd) {
+  background-color: white;
+}
+
+.tg.HORS.PROJET th:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.tg.HORS.PROJET td:nth-child(even) {
+  background-color: white;
+}
+
+.tg.HORS.PROJET td:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.tg.HORS.PROJET td:first-child, .tg.HORS.PROJET th:first-child {
+  background-color: white;
+}
 .btn-group-cra{
   width: 80px;
   border:none!important;
@@ -151,7 +170,7 @@
     vertical-align: top;
     height: 25px;
 }
-
+.style_totale {background: #fff!important;}
 .tg td.custmor{
   width: 120px;
   border: 1px solid #e6e6e6;
