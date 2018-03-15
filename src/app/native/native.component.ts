@@ -1,7 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import * as moment_ from 'moment';
 declare var $: any;
-import { IMultiSelectOption, IMultiSelectSettings } from 'angular-2-dropdown-multiselect';
 @Component({
     selector: 'app-native',
     templateUrl: './native.component.html',
@@ -24,7 +23,7 @@ export class NativeComponent implements OnInit {
             "supprimer":false,
             "vider":true,
             "completer":true,
-            "dateP": [
+            "lignes": [
                 {
                     "date": "03-01-2018",
                     "value": 1
@@ -50,7 +49,7 @@ export class NativeComponent implements OnInit {
             "supprimer":true,
             "vider":false,
             "completer":false,
-            "dateP": [
+            "lignes": [
                 {
                     "date": "03-02-2018",
                     "value": 1
@@ -76,7 +75,7 @@ export class NativeComponent implements OnInit {
             "supprimer":false,
             "vider":true,
             "completer":true,
-            "dateP": [
+            "lignes": [
                 {
                     "date": "03-04-2018",
                     "value": 1
@@ -102,7 +101,113 @@ export class NativeComponent implements OnInit {
             "supprimer":true,
             "vider":false,
             "completer":false,
-            "dateP": [
+            "lignes": [
+                {
+                    "date": "03-01-2018",
+                    "value": 1
+                },
+                {
+                    "date": "03-14-2018",
+                    "value": 1 / 2
+                },
+                {
+                    "date": "03-27-2018",
+                    "value": 1 / 3
+                },
+                {
+                    "date": "03-16-2018",
+                    "value": 1 / 4
+                }
+            ],
+            "joursT": 0
+        }
+    ];
+    public projects2 = [
+        {
+            "client": "Talan SAS",
+            "mission": "Other",
+            "supprimer":false,
+            "vider":true,
+            "completer":true,
+            "lignes": [
+                {
+                    "date": "03-01-2018",
+                    "value": 1
+                },
+                {
+                    "date": "03-13-2018",
+                    "value": 1 / 2
+                },
+                {
+                    "date": "03-31-2018",
+                    "value": 1 / 3
+                },
+                {
+                    "date": "03-20-2018",
+                    "value": 1 / 4
+                }
+            ],
+            "joursT": 0
+        },
+        {
+            "client": "Talan SAS",
+            "mission": "Other",
+            "supprimer":true,
+            "vider":false,
+            "completer":false,
+            "lignes": [
+                {
+                    "date": "03-02-2018",
+                    "value": 1
+                },
+                {
+                    "date": "03-03-2018",
+                    "value": 1 / 2
+                },
+                {
+                    "date": "03-23-2018",
+                    "value": 1 / 3
+                },
+                {
+                    "date": "03-11-2018",
+                    "value": 1 / 4
+                }
+            ],
+            "joursT": 0
+        },
+        {
+            "client": "Talan SAS",
+            "mission": "Other",
+            "supprimer":false,
+            "vider":true,
+            "completer":true,
+            "lignes": [
+                {
+                    "date": "03-04-2018",
+                    "value": 1
+                },
+                {
+                    "date": "03-10-2018",
+                    "value": 1 / 2
+                },
+                {
+                    "date": "03-28-2018",
+                    "value": 1 / 3
+                },
+                {
+                    "date": "03-21-2018",
+                    "value": 1 / 4
+                }
+            ],
+            "joursT": 0
+        },
+        {
+            "client": "Talan SAS",
+            "mission": "Other",
+            "supprimer":true,
+            "vider":false,
+            "completer":false,
+            "lignes": [
                 {
                     "date": "03-01-2018",
                     "value": 1
@@ -130,10 +235,16 @@ export class NativeComponent implements OnInit {
         this.currentMonth = now.get('month') + 1;
         this.currentYear = now.get('year');
         this.count = now.daysInMonth();
-        this.refresh();
+        this.refreshDateData();
+
         this.projects.forEach(project => {
-            project.dateP = this.transform(project, this.placehold_it(this.count, this.days), this.count);
-            project.joursT = this.calcSum(project.dateP);
+            project.lignes = this.transform(project, this.placehold_it(this.count, this.days), this.count);
+            project.joursT = this.calcSum(project.lignes);
+        });
+
+        this.projects2.forEach(project => {
+            project.lignes = this.transform(project, this.placehold_it(this.count, this.days), this.count);
+            project.joursT = this.calcSum(project.lignes);
         });
     }
     
@@ -150,8 +261,8 @@ export class NativeComponent implements OnInit {
     }
 
     transform(realData, fake_data, count) {
-        for (let index = 0; index < realData.dateP.length; index++) {
-            const element = realData.dateP[index];
+        for (let index = 0; index < realData.lignes.length; index++) {
+            const element = realData.lignes[index];
 
             for (let index2 = 0; index2 < count; index2++) {
                 const element2 = fake_data[index2];
@@ -169,15 +280,20 @@ export class NativeComponent implements OnInit {
         this.currentMonth = now.get('month') + 1;
         this.currentYear = now.get('year');
         this.count = now.daysInMonth();
-        this.refresh();
-        this.projects.forEach(project => {
 
-            project.dateP = this.transform(project, this.placehold_it(this.count, this.days), this.count);
-            project.joursT = this.calcSum(project.dateP);
+        this.refreshDateData();
+        this.refreshProjectsData(this.projects);
+        this.refreshProjectsData(this.projects2);         
+    }
+
+    refreshProjectsData(projects){
+        projects.forEach(project => {
+            project.lignes = this.transform(project, this.placehold_it(this.count, this.days), this.count);
+            project.joursT = this.calcSum(project.lignes);
         })
     }
 
-    refresh() {
+    refreshDateData() {
         this.days = this.getDateDays(this.currentMonth, this.currentYear);
         this.daysN = this.getDateDaysN(this.currentMonth, this.currentYear);
     }    
@@ -216,23 +332,23 @@ export class NativeComponent implements OnInit {
 
     change() {
         this.projects.forEach(project => {
-            project.joursT = this.calcSum(project.dateP);
+            project.joursT = this.calcSum(project.lignes);
         })
     }
 
     changeYear(currentYear) {
         this.currentYear = currentYear;
-        this.refresh();
+        this.refreshDateData();
     }
 
     changeMonth(currentMonth) {
         this.currentMonth = currentMonth;
-        this.refresh();
+        this.refreshDateData();
     }
 
     clear(project){
-        project.dateP.forEach(element => {element.value = null;});
-        this.refresh()
+        project.lignes.forEach(element => {element.value = null;});
+        this.refreshProjectsData(this.projects)
     }
 
     complete(project){
@@ -242,12 +358,46 @@ export class NativeComponent implements OnInit {
     delete(project){
         this.projects.splice(this.projects.indexOf(project),1 )
     }
+
     prevMonth(){
         this.currentMonth = this.currentMonth-1;
-        this.refresh()
+        this.refreshDateData()
     }
+
     nextMonth(){
         this.currentMonth = this.currentMonth+1;
-        this.refresh()
+        this.refreshDateData()
+    }
+
+    add(){
+        this.projects2.push(
+            {
+                "client": "not defined",
+                "mission": "not defined",
+                "supprimer":true,
+                "vider":false,
+                "completer":false,
+                "lignes": [
+                    {
+                        "date": "03-01-2018",
+                        "value": null
+                    },
+                    {
+                        "date": "03-14-2018",
+                        "value": null
+                    },
+                    {
+                        "date": "03-27-2018",
+                        "value": null
+                    },
+                    {
+                        "date": "03-16-2018",
+                        "value": null
+                    }
+                ],
+                "joursT": 0
+            }
+        );
+        this.refreshProjectsData(this.projects2);
     }
 }

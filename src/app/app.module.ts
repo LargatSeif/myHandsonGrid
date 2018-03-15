@@ -22,15 +22,18 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect';
 import { DatatableComponent } from './datatable/datatable.component';
 import { DataTableModule } from './datatable';
+import { TimetableComponent } from './timetable/timetable.component';
 
 const routes:Routes = [
-  {path:'',component:NativeComponent}
+  {path:'',component:NativeComponent},
+  {path:'timetable',component:TimetableComponent}
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    NativeComponent
+    NativeComponent,
+    TimetableComponent
   ],
   imports: [
     BrowserModule,
