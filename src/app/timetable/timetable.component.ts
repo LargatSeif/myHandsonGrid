@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+declare var $: any;
 import { CradataService } from '../services/cradata.service';
 import { craData } from '../models/cradata.model';
 
 import * as moment_ from 'moment';
-declare var $: any;
+import { IDatePickerConfig, ECalendarValue, DatePickerComponent } from 'ng2-date-picker';
+
 
 @Component({
   selector: 'app-timetable',
@@ -23,7 +25,34 @@ export class TimetableComponent implements OnInit {
   public count: number;
   public isEdit: boolean = false;
   public sum = [];
- 
+
+  config: IDatePickerConfig = {
+    firstDayOfWeek: 'mo',
+    monthFormat: 'MMM',
+    format: 'MMMM-YYYY',
+    disableKeypress: false,
+    allowMultiSelect: false,
+    closeOnSelect: undefined,
+    closeOnSelectDelay: 100,
+    openOnFocus: true,
+    openOnClick: true,
+    onOpenDelay: 0,
+    appendTo: document.body,
+    showNearMonthDays: true,
+    enableMonthSelector: true,
+    yearFormat: 'YYYY',
+    showGoToCurrent: false,
+    monthBtnFormat: 'MMM',
+    multipleYearsNavigateBy: 1,
+    showMultipleYearsNavigation: false,
+    locale: 'fr',
+    hideInputContainer: false,
+    returnedValueType: ECalendarValue.String,
+    unSelectOnClick: true,
+    hideOnOutsideClick: true
+  };
+  isAtTop: boolean = true;
+  public currentDate;
   constructor(private _craDataService: CradataService) {
 
   }
@@ -36,18 +65,19 @@ export class TimetableComponent implements OnInit {
         this.currrentCra = value;
         this.currentMonth = value.mois;
         this.currentYear = value.annee;
-
+        this.currentDate = moment_(this.currentMonth + "-" + this.currentYear, 'MM-YYYY').locale('fr').format('MMMM-YYYY');
         this.CraDataLoaded = Promise.resolve(true);
       },
       error => () => {
         console.log('failed to fetch cra data'); this.CraDataLoaded = Promise.resolve(false);
       });
-
-      this.daysN = this.getDateDaysN(this.currentMonth,this.currentYear)
+    this.daysN = this.getDateDaysN(this.currentMonth, this.currentYear);
   }
 
+  ngAfterViewInit() {
+
+  }
   refreshDateData() {
-    //this.days = this.getDateDays(this.currentMonth, this.currentYear);
     this.daysN = this.getDateDaysN(this.currentMonth, this.currentYear);
   }
 
@@ -81,11 +111,6 @@ export class TimetableComponent implements OnInit {
   }
 
 
-
-
-
-
-
   calcSum(data_array: any) {
     let sum = 0;
     for (let index = 0; index < data_array.length; index++) {
@@ -97,31 +122,28 @@ export class TimetableComponent implements OnInit {
 
 
 
-  changeYear(currentYear) {
-    this.currentYear = currentYear;
+
+
+  changeDate(newDate) {
+    this.currentMonth = parseInt(moment_(newDate, 'MMMM-YYYY').format('MM'));
+    this.currentYear = parseInt(moment_(newDate, 'MMMM-YYYY').format('YYYY'));
+    console.log()
+    this.currentDate = moment_(newDate, 'MMMM-YYYY').format('MMMM-YYYY');
     this.refreshDateData();
   }
-
-  changeMonth(currentMonth) {
-    this.currentMonth = currentMonth;
-    this.refreshDateData();
-  }
-
-
 
   complete(project) {
     console.log("COMPLETE ACTION")
   }
 
-
+  
 
   prevMonth() {
-    this.currentMonth = this.currentMonth - 1;
-    this.refreshDateData()
+    this.currentDate = moment_(this.currentMonth + "-" + this.currentYear, "MM-YYYY").subtract(1,'M').format('MMMM-YYYY').toString();
   }
 
   nextMonth() {
-    this.currentMonth = this.currentMonth + 1;
-    this.refreshDateData()
+    this.currentDate = moment_(this.currentMonth + "-" + this.currentYear, "MM-YYYY").add(1,'M').format('MMMM-YYYY').toString()
+    //this.refreshDateData()
   }
 }

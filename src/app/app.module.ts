@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 //import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule,Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { HttpModule } from '@angular/http';
 //ng2-jsGrid
@@ -23,22 +23,27 @@ import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect';
 import { DatatableComponent } from './datatable/datatable.component';
 import { DataTableModule } from './datatable';
 import { TimetableComponent } from './timetable/timetable.component';
-
-const routes:Routes = [
-  {path:'',component:NativeComponent},
-  {path:'timetable',component:TimetableComponent}
+import { DpDatePickerModule } from 'ng2-date-picker';
+import { TableComponent } from './table/table.component';
+import { TableModule } from './table/table.module';
+const routes: Routes = [
+  { path: '', component: NativeComponent },
+  { path: 'timetable', component: TimetableComponent }
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
     NativeComponent,
-    TimetableComponent
+    TimetableComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
     DataTableModule,
-    BsDropdownModule.forRoot(),
+    BsDropdownModule.forRoot(), 
+    DpDatePickerModule,
+    TableModule,
     MultiselectDropdownModule,
     MomentModule,
     RouterModule.forRoot(routes),
