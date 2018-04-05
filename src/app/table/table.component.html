@@ -3,14 +3,15 @@
     <div class="row" *ngIf="loading">
         <div class="col-md-12" *ngIf="loading ">
             <div class="container">
-
                 <ng-container *ngFor="let rub of data.rubriques">
-
+                    <br>
                     <p-table [value]="rub.lignes" dataKey="composantsRubrique.label">
                         <ng-template pTemplate="header">
                             <tr *ngIf="rub.libelleRubrique == 'PROJETS'">
                                 <th rowspan="2" class="text-center action-col">
-                                    <a *ngIf="rub.afficheAjouter">+</a>
+                                    <a class="btn btn-sm btn-danger" *ngIf="rub.afficheAjouter">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
                                 </th>
                                 <th colspan="2" class="text-center rubrique blue">{{ rub.libelleRubrique}}</th>
                                 <th class="text-center blue cell-taux" *ngFor="let col of header">{{col}}</th>
@@ -26,7 +27,9 @@
 
                             <tr *ngIf="rub.libelleRubrique == 'HORS PROJET'">
                                 <th class="text-center action-col">
-                                    <a *ngIf="rub.afficheAjouter">+</a>
+                                    <a class="btn btn-sm btn-danger" *ngIf="rub.afficheAjouter">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
                                 </th>
                                 <th rowspan="2" colspan="2" class="text-center rubrique blue">{{ rub.libelleRubrique}}</th>
                                 <th class="text-center no-bg" rowspan="2" *ngFor="let col of header"></th>
@@ -35,7 +38,9 @@
 
                             <tr *ngIf="rub.libelleRubrique =='REGULARISATION' ">
                                 <th class="text-center action-col">
-                                    <a *ngIf="rub.afficheAjouter">+</a>
+                                    <a class="btn btn-sm btn-danger" *ngIf="rub.afficheAjouter">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
                                 </th>
                                 <th colspan="2" class="text-center rubrique blue">{{ rub.libelleRubrique}}</th>
                                 <th class="text-center no-bg" *ngFor="let col of header"></th>
@@ -44,7 +49,9 @@
 
                             <tr *ngIf="rub.libelleRubrique =='PROJET NON FACTURABLE' ">
                                 <th class="text-center action-col">
-                                    <a *ngIf="rub.afficheAjouter">+</a>
+                                    <a class="btn btn-sm btn-danger" *ngIf="rub.afficheAjouter">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
                                 </th>
                                 <th colspan="2" class="text-center rubrique blue">{{ rub.libelleRubrique}}</th>
                                 <th class="text-center no-bg" *ngFor="let col of header"></th>
@@ -108,13 +115,15 @@
                                     </a>
 
                                 </td>
-                                <td class="text-center composants-rubrique" [tooltip]="rowData.composantsRubrique[1].tooltip" placement="bottom">
-                                    {{ rowData.composantsRubrique[0].label }}
+                                <td class="text-center composants-rubrique">
+                                    <span [tooltip]="rowData.composantsRubrique[1].tooltip" placement="bottom">{{ rowData.composantsRubrique[0].label }}</span>
                                     <a *ngIf="rowData.sousLignes?.length >0" [pRowToggler]="rowData" class="btn btn-souslignes">
                                         <i class="icons20-delete"></i>
                                     </a>
                                 </td>
-                                <td class="text-center composants-rubrique" [tooltip]="rowData.composantsRubrique[1].tooltip" placement="bottom" title="">{{ rowData.composantsRubrique[1].label }}</td>
+                                <td class="text-center composants-rubrique">
+                                    <span [tooltip]="rowData.composantsRubrique[1].tooltip" placement="bottom">{{ rowData.composantsRubrique[0].label }}</span>
+                                </td>
                                 <td class="text-center" *ngFor="let jour of rowData.jours.joursAffectation" [ngClass]="jour.styleClass" pEditableColumn>
                                     <p-cellEditor>
                                         <ng-template pTemplate="input" *ngIf="rowData.saisieParListe == true">
@@ -148,8 +157,12 @@
                                         <i class="icons20-delete"></i>
                                     </a>
                                 </td>
-                                <td class="text-center composants-rubrique" [tooltip]="rowData.composantsRubrique[0].tooltip" placement="bottom">{{ rowData.composantsRubrique[0].label }}</td>
-                                <td class="text-center composants-rubrique" [tooltip]="rowData.composantsRubrique[1].tooltip" placement="bottom">{{ rowData.composantsRubrique[1].label }}</td>
+                                <td class="text-center composants-rubrique">
+                                    <span [tooltip]="rowData.composantsRubrique[0].tooltip" placement="bottom">{{ rowData.composantsRubrique[0].label }}</span>
+                                </td>
+                                <td class="text-center composants-rubrique" [tooltip]="rowData.composantsRubrique[1].tooltip" placement="bottom">
+                                    <span [tooltip]="rowData.composantsRubrique[1].tooltip" placement="bottom">{{ rowData.composantsRubrique[1].label }}</span>
+                                </td>
                                 <td class="text-center" *ngFor="let jour of rowData.jours.joursAffectation" [ngClass]="jour.styleClass" pEditableColumn>
                                     <p-cellEditor>
                                         <ng-template pTemplate="input" *ngIf="rowData.saisieParListe == true">
@@ -184,8 +197,12 @@
                                     </a>
 
                                 </td>
-                                <td class="text-center composants-rubrique" [tooltip]="rowData.composantsRubrique[0].tooltip" placement="bottom">{{ rowData.composantsRubrique[0].label }}</td>
-                                <td class="text-center composants-rubrique" [tooltip]="rowData.composantsRubrique[1].tooltip" placement="bottom">{{ rowData.composantsRubrique[1].label }}</td>
+                                <td class="text-center composants-rubrique">
+                                    <span [tooltip]="rowData.composantsRubrique[0].tooltip" placement="bottom"> {{ rowData.composantsRubrique[0].label }} </span>
+                                </td>
+                                <td class="text-center composants-rubrique">
+                                    <span [tooltip]="rowData.composantsRubrique[1].tooltip" placement="bottom"> {{ rowData.composantsRubrique[1].label }} </span>
+                                </td>
                                 <td class="text-center" *ngFor="let jour of rowData.jours.joursAffectation" [ngClass]="jour.styleClass" pEditableColumn>
                                     <p-cellEditor>
                                         <ng-template pTemplate="input" *ngIf="rowData.saisieParListe == true">
@@ -222,7 +239,9 @@
                                     </a>
 
                                 </td>
-                                <td colspan="2" class="text-center" [tooltip]="sousLigne.composantsRubrique[0].tooltip" placement="bottom">{{sousLigne.composantsRubrique[0].label}}</td>
+                                <td colspan="2" class="text-center">
+                                    <span [tooltip]="sousLigne.composantsRubrique[0].tooltip" placement="bottom">{{sousLigne.composantsRubrique[0].label}}</span>
+                                </td>
                                 <td class="text-center" [ngClass]="jour.styleClass" *ngFor="let jour of sousLigne.jours.joursAffectation">
                                     <span class="text-center">{{jour.taux}}</span>
                                 </td>
