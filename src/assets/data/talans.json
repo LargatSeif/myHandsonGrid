@@ -1,0 +1,54 @@
+{
+    "nbNouveauxTalan":7,
+    "nouveauxTalan":[
+       {
+          "fullName":"Anne-laurence ABANDA ",
+          "profil":"VR Designer",
+          "socLabel":"Talan Labs",
+          "linkedIn":"https://www.linkedin.com/in/Anne-laurence/",
+          "commentaire":"Commentaire 1"
+       },
+       {
+          "fullName":"AMIRA ADASSEN",
+          "profil":"Développeuse Java",
+          "socLabel":"Talan Labs",
+          "linkedIn":"https://www.linkedin.com/in/AMIRA/",
+          "commentaire":" Commentaire 2"
+       },
+       {
+          "fullName":"Alexis ANCELLE",
+          "profil":"Chef de projet",
+          "socLabel":"Talan Labs",
+          "linkedIn":"https://www.linkedin.com/in/Alexis/",
+          "commentaire":"Commentaire 3"
+       },
+       {
+          "fullName":"SANA ADLANI ",
+          "profil":"Ingenieur Consultant Junior",
+          "socLabel":"Talan Labs",
+          "linkedIn":"https://www.linkedin.com/in/SANA/",
+          "commentaire":"Commentaire 4"
+       },
+       {
+          "fullName":"KENZA HASSENI",
+          "profil":"Développeuse Java",
+          "socLabel":"Talan Labs",
+          "linkedIn":"https://www.linkedin.com/in/KENZA/",
+          "commentaire":"Commentaire 5"
+       },
+       {
+          "fullName":"SOPHIE ALLION",
+          "profil":"Chef de projet",
+          "socLabel":"Talan Labs",
+          "linkedIn":"https://www.linkedin.com/in/SOPHIE/",
+          "commentaire":"Commentaire 6"
+       },
+       {
+          "fullName":"John Doe",
+          "profil":"Chef de projet",
+          "socLabel":"Talan Labs",
+          "linkedIn":"https://www.linkedin.com/in/JOHNDOE/",
+          "commentaire":"Commentaire 7"
+       }
+    ]
+ }

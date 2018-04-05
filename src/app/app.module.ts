@@ -14,6 +14,8 @@ import {MenuItem} from 'primeng/api';                 //api
 */
 import { MomentModule } from 'angular2-moment';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 //import { HotTableModule } from '@handsontable/angular';
 
 import { AppComponent } from './app.component';
@@ -25,9 +27,9 @@ import { DataTableModule } from './datatable';
 import { TimetableComponent } from './timetable/timetable.component';
 import { DpDatePickerModule } from 'ng2-date-picker';
 import { TableComponent } from './table/table.component';
-import { TableModule } from './table/table.module';
+import { TableXModule } from './table/table.module'; 
 const routes: Routes = [
-  { path: '', component: NativeComponent },
+  { path: '', component: TableComponent },
   { path: 'timetable', component: TimetableComponent }
 ]
 
@@ -35,15 +37,16 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     NativeComponent,
-    TimetableComponent,
-    TableComponent
+    TimetableComponent, 
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule, 
     DataTableModule,
     BsDropdownModule.forRoot(), 
     DpDatePickerModule,
-    TableModule,
+    TableXModule,
     MultiselectDropdownModule,
     MomentModule,
     RouterModule.forRoot(routes),

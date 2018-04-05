@@ -1,0 +1,107 @@
+{
+  "idPers": 9867,
+  "idCRA": 1256,
+  "annee": 2018,
+  "mois": 3,
+  "workflow": [
+    {
+      "acteur": "Arwa Ayeche",
+      "date": "24/03/2018",
+      "description": "CRA_NON_SOUMIS",
+      "status": "CRA_NON_SOUMIS",
+      "commentaire": "Cra soumis commentaire",
+      "afficheCommentaire": true,
+      "ordre": 0
+    },
+    {
+      "acteur": "Arwa Ayeche",
+      "date": "25/03/2018",
+      "description": "CRA_EN_ATTENTE",
+      "status": "CRA_EN_ATTENTE",
+      "commentaire": "Cra soumis commentaire",
+      "afficheCommentaire": true,
+      "ordre": 0
+    },
+    {
+      "acteur": "Arwa Ayeche",
+      "date": "23/03/2018",
+      "description": "Cra soumis",
+      "status": "CRA_SOUMIS",
+      "commentaire": "Cra soumis commentaire",
+      "afficheCommentaire": true,
+      "ordre": 0
+    },
+    {
+      "acteur": "Arwa Ayeche",
+      "date": "23/03/2018",
+      "description": "Cra soumis",
+      "status": "CRA_SOUMIS",
+      "commentaire": "Cra soumis commentaire",
+      "afficheCommentaire": true,
+      "ordre": 0
+    },
+    {
+      "acteur": "Arwa Ayeche",
+      "date": "25/03/2018",
+      "description": "CRA_EN_ATTENTE",
+      "status": "CRA_EN_ATTENTE",
+      "commentaire": "Cra soumis commentaire",
+      "afficheCommentaire": true,
+      "ordre": 0
+    },
+    {
+      "acteur": "Arwa Ayeche",
+      "date": "25/03/2018",
+      "description": "CRA_EN_ATTENTE",
+      "status": "CRA_EN_ATTENTE",
+      "commentaire": "Cra soumis commentaire",
+      "afficheCommentaire": true,
+      "ordre": 0
+    },
+    {
+      "acteur": "Arwa Ayeche",
+      "date": "25/03/2018",
+      "description": "CRA_EN_ATTENTE",
+      "status": "CRA_EN_ATTENTE",
+      "commentaire": "Cra soumis commentaire",
+      "afficheCommentaire": true,
+      "ordre": 0
+    },
+    {
+      "acteur": "Arwa Ayeche",
+      "date": "25/03/2018",
+      "description": "CRA_EN_ATTENTE",
+      "status": "CRA_EN_ATTENTE",
+      "commentaire": "Cra soumis commentaire",
+      "afficheCommentaire": true,
+      "ordre": 0
+    },
+    {
+      "acteur": "Arwa Ayeche",
+      "date": "25/03/2018",
+      "description": "CRA_EN_ATTENTE",
+      "status": "CRA_EN_ATTENTE",
+      "commentaire": "Cra soumis commentaire",
+      "afficheCommentaire": true,
+      "ordre": 0
+    },
+    {
+      "acteur": "Arwa Ayeche",
+      "date": "25/03/2018",
+      "description": "CRA_EN_ATTENTE",
+      "status": "CRA_EN_ATTENTE",
+      "commentaire": "Cra soumis commentaire",
+      "afficheCommentaire": true,
+      "ordre": 0
+    },
+    {
+      "acteur": "Arwa Ayeche",
+      "date": "25/03/2018",
+      "description": "CRA_EN_ATTENTE",
+      "status": "CRA_EN_ATTENTE",
+      "commentaire": "Cra soumis commentaire",
+      "afficheCommentaire": true,
+      "ordre": 0
+    }
+  ]
+}

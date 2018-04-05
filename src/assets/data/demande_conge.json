@@ -1,0 +1,98 @@
+{
+    "annee": 2017,
+    "natureListe": [
+        "Normal",
+        "Exceptionnel",
+        "Sans solde"
+    ],
+    "typesListe": [
+        "RTT",
+        "Congé Payé"
+    ],
+    "zones": [
+        "AM",
+        "PM"
+    ],
+    "soldeConge": [
+        {
+            "dateDebut": "02/01/2018",
+            "zoneDebut": "AM",
+            "dateFin": "21/05/2018",
+            "zoneFin": "PM",
+            "nature ": "Normal",
+            "type": "RTT",
+            "nombreDeJours": 5,
+            "statutLabel": "Acceptée",
+            "statutStyle": "statut_icone_valide",
+            "justificatifAjoute": true,
+            "commentaire": "commentaire congé",
+            "afficheEdit": false,
+            "afficheSupprimer": false,
+            "idWorkflow": 3
+        },
+        {
+            "dateDebut": "12/02/2018",
+            "zoneDebut": "AM",
+            "dateFin": "15/02/2018",
+            "zoneFin": "PM",
+            "nature ": "Normal",
+            "type": "Congé Payé",
+            "nombreDeJours": 1,
+            "statutLabel": "Accepté",
+            "statutStyle": "statut_icone_valide",
+            "justificatifAjoute": false,
+            "commentaire": "commentaire congé",
+            "afficheEdit": false,
+            "afficheSupprimer": false,
+            "idWorkflow": 3
+        },
+        {
+            "dateDebut": "20/12/2017",
+            "zoneDebut": "AM",
+            "dateFin": "30/12/2017",
+            "zoneFin": "PM",
+            "nature ": "Normal",
+            "type": "Congé Payé",
+            "nombreDeJours": 2,
+            "statutLabel": "Rjeté",
+            "statutStyle": "statut_icone_regjet",
+            "justificatifAjoute": false,
+            "commentaire": "commentaire rejet",
+            "afficheEdit": false,
+            "afficheSupprimer": false,
+            "idWorkflow": 3
+        },
+        {
+            "dateDebut": "20/06/2017",
+            "zoneDebut": "AM",
+            "dateFin": "20/06/2017",
+            "zoneFin": "AM",
+            "nature ": "Normal",
+            "type": "RTT",
+            "nombreDeJours": 0.5,
+            "statutLabel": "En attente",
+            "statutStyle": "statut_icone_attente",
+            "justificatifAjoute": true,
+            "commentaire": "commentaire congé",
+            "afficheEdit": true,
+            "afficheSupprimer": true,
+            "idWorkflow": 3
+        },
+        {
+            "dateDebut": "12/03/2017",
+            "zoneDebut": "PM",
+            "dateFin": "12/03/2017",
+            "zoneFin": "PM",
+            "nature ": "Normal",
+            "type": "Congé Payé",
+            "nombreDeJours": 1.5,
+            "statutLabel": "En attente",
+            "statutStyle": "statut_icone_attente",
+            "justificatifAjoute": true,
+            "commentaire": "commentaire congé",
+            "afficheEdit": true,
+            "afficheSupprimer": true,
+            "idWorkflow": 3
+        }
+    ]
+}

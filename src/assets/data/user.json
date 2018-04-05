@@ -1,0 +1,28 @@
+{
+  "idUser": 910,
+  "firstName": "Noemie",
+  "lastName": "ABBEY",
+  "login": "noemie.abbey@talan.com",
+  "societeId": 1,
+  "companyName": "TALAN SAS",
+  "functionId": 31,
+  "isActive": true,
+  "idPers": 9867,
+  "lastLogOnDate": "2017-11-28",
+  "emailPro": "noemie.abbey@talan.com",
+  "fullName": "Noemie ABBEY",
+  "isWelcomeMailSend": true,
+  "autorisations": [
+    "ROLE_ACCES_RH",
+    "ROLE_ACCES_PRJ"
+  ],
+  "userLangue": {
+    "idLangueParametre": 1,
+    "langueABRV": "FR"
+  },
+  "userSexe": {
+    "idSexe": 1,
+    "sexeABRV": "F"
+  },
+  "idThemeCouleur": 2
+}

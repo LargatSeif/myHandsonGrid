@@ -1,9 +1,201 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@swimlane/ngx-datatable/release/index.css';
-@import '~@swimlane/ngx-datatable/release/themes/material.css';
-@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+
 /*
 .handsontable .handsontable.ht_clone_top .wtHider {
     background-color: yellow !important;
 }*/
-.empty-row{display: none !important;}
+[class^="icons20-"],
+[class*=" icons20-"] {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  line-height: 22px;
+  vertical-align: middle;
+  background-color: transparent;
+  background-image: url("/assets/images/icons/btn_table_cra.png");
+  background-position: 0px 0px;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: 110px 22px;
+}
+
+.icons20-clear {
+  background-position: 0 0;
+}
+
+.icons20-complete {
+  background-position: -22px 0;
+}
+
+.icons20-add {
+  background-position: -44px 0;
+}
+
+.icons20-delete {
+  background-position: -66px 0;
+  margin-right: -11px !important;
+}
+
+/*table cra */
+.empty-row {
+    display: none !important;
+}
+th.total{
+    border: none!important;
+    border-right: 0px solid #e6e6e6 !important;
+    min-width: 28px!important;
+    max-width: 28px!important;
+    color: #17498f !important;
+    font-weight: 700!important;
+}
+
+td.cell-total{
+    border-right: none !important;
+    color: #a7a7a7 !important;
+    font-size: 12px;
+}
+
+th.no-bg {
+    background-color: #fff !important;
+    min-width: 25px;
+    max-width: 25px;
+    border: none !important;
+}
+
+th.cell-taux:nth-child(even) {
+    background-color: white !important;
+}
+
+th.cell-taux:nth-child(odd) {
+    background-color: #f9f9f9 !important;
+}
+
+td.ui-editable-column:nth-child(even) {
+    background-color: #f9f9f9 !important;
+}
+
+td.ui-editable-column:nth-child(odd) {
+    background-color: white  !important;
+}
+
+td.ui-editable-column {
+    border: none !important;
+    border-top: 1px solid #f9f9f9 !important;
+    border-bottom: 1px solid #f9f9f9 !important;
+    font-size: 12px;
+    color: #a7a7a7;
+    
+    min-width: 25px;
+    max-width: 25px;
+}
+
+/* cra table */
+
+.ui-table .ui-table-thead>tr>th {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    font-weight: normal;
+    word-break: normal;
+    color: #939393;
+}
+
+th.rubrique {
+    min-width: 250px;
+    max-width: 250px;
+    border: 1px solid #e6e6e6 !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    color: #17498f !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+td.composants-rubrique {
+    min-width: 125px;
+    max-width: 125px;
+    font-size:12px;
+}
+th.composants-rubrique {
+    min-width: 125px;
+    max-width: 125px;
+    font-size:12px;
+}
+
+.h-composants-rubrique {
+    min-width: 250px;
+    max-width: 250px;
+    font-size:12px;
+}
+
+.btn-group-cra {
+    position: relative;
+    min-width: 70px;
+    border: none !important;
+}
+
+.btn-group-cra .btn {
+    width: auto;
+    background: none;
+    padding: 0;
+    float: left;
+}
+
+.btn-group-cra .btn-delete {
+    float: right;
+}
+.composants-rubrique > a.btn-souslignes {
+    width: auto;
+    background: none;
+    padding: 0; 
+    float: right; 
+}
+
+.cell-taux {
+    min-width: 25px;
+    max-width: 25px;
+    border: none !important;
+}
+
+.blue {
+    font-weight: 700 !important;
+    color: #17498f !important;
+}
+
+th.action-col {
+    min-width: 70px;
+    max-width: 70px;
+    border:none !important;
+}
+tr.sous-ligne{
+    font-size: 12px;
+    color:#a7a7a7;
+}
+.ui-table .ui-table-thead>tr>th,
+.ui-table .ui-table-tbody>tr>td,
+.ui-table .ui-table-tfoot>tr>td {
+    background-color: #fff;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+}
+
+.no_working_day_class {
+    background: #fff url("/assets/images/hachure_tab.png") 0 0 no-repeat !important;
+    -webkit-background-size: cover !important;
+    background-size: cover !important;
+}
+
+.no_working_day_class span {
+    background: #FFF !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+}
+
+.week-end {
+    border-bottom: 4px solid #f1bd00 !important;
+    bottom: 1px !important;
+    left: 0;
+}
+
+/* cra table */

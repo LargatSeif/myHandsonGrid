@@ -1,0 +1,28 @@
+{
+    "liensUtiles": [
+        {
+            "lienUtileUrl": "urlLienUtile",
+            "lienUtileLabel": "Mes fiches de paie"
+        },
+        {
+            "lienUtileUrl": "urlLienUtile",
+            "lienUtileLabel": "Toutes les formations"
+        },
+        {
+            "lienUtileUrl": "urlLienUtile",
+            "lienUtileLabel": "Toutes les aides pour le logement"
+        },
+        {
+            "lienUtileUrl": "urlLienUtile",
+            "lienUtileLabel": "En cas d'incident"
+        },
+        {
+            "lienUtileUrl": "urlLienUtile",
+            "lienUtileLabel": "Le site du groupe"
+        },
+        {
+            "lienUtileUrl": "urlLienUtile",
+            "lienUtileLabel": "Outils de ticketing"
+        }
+    ]
+}

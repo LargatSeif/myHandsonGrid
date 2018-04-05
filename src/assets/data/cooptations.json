@@ -1,0 +1,16 @@
+{
+    "profils": [
+        {
+            "profilLabel": "Développeur JAVA",
+            "prime": 1500,
+            "idSoc": 1,
+            "socLabel": "Talan Labs"
+        },
+        {
+            "profilLabel": "Product Owner",
+            "prime": 3000,
+            "idSoc": 1,
+            "socLabel": "Talan Labs"
+        }
+    ]
+}

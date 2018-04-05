@@ -2,11 +2,11 @@
     "idPers":9867,
     "idCRA":1256,
     "mois":3,
-    "annee":2018,
+    "annee":2017,
     "rubriques":[
         {
             "libelleRubrique":"PROJETS",
-            "afficheAjouter":false,
+            "afficheAjouter":true,
             "libelleSousRubrique":[
                 {
                     "titre":"Client"
@@ -28,7 +28,7 @@
                         }
                     ],
                     "afficheCompleterEtVider":true,
-                    "afficheSupprimer":false,
+                    "afficheSupprimer":true,
                     "saisieParListe":true,
                     "jours":{
                         "totale":5,
@@ -36,9 +36,9 @@
                         "joursAffectation":[
                             {
                                 "jourDuMois":1,
-                                "taux":0,
-                                "disabled":true,
-                                "styleClass":null
+                                "taux":0.25,
+                                "disabled":false,
+                                "styleClass":"bg-primary"
                             },
                             {
                                 "jourDuMois":2,

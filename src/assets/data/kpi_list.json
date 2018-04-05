@@ -1,0 +1,73 @@
+{
+    "KPIListe": [
+        {
+            "modes": [
+                {
+                    "libelle1": "RTT",
+                    "libelle2": "avant le 31/12",
+                    "valeur": 4,
+                    "valeurStyle": "valeur_kpi_class_warning",
+                    "afficheInfo": false,
+                    "tooltipInfo": null,
+                    "mode": null
+                }
+            ]
+        },
+        {
+            "modes": [
+                {
+                    "libelle1": "CP à solder",
+                    "libelle2": "avant le 31/12",
+                    "valeur": 7,
+                    "valeurStyle": "valeur_kpi_class_warning",
+                    "afficheInfo": true,
+                    "tooltipInfo": "Si vous n'utilisez pas entierement votre solde de ongès d'ici le 31/12, vous pourrez mettre vos congès restant sur votre PERCO",
+                    "mode": null
+                }
+            ]
+        },
+        {
+            "modes": [
+                {
+                    "libelle1": "CP en aquisition",
+                    "libelle2": "FIN DU MOIS",
+                    "valeur": 10,
+                    "valeurStyle": "valeur_kpi_class_standard",
+                    "afficheInfo": false,
+                    "mode": "mode_mois"
+                },
+                {
+                    "libelle1": "CP en aquisition",
+                    "libelle2": "FIN D'ANNEE",
+                    "valeur": 25,
+                    "valeurStyle": "valeur_kpi_class_standard",
+                    "afficheInfo": false,
+                    "tooltipInfo": null,
+                    "mode": "mode_annnee"
+                }
+            ]
+        },
+        {
+            "modes": [
+                {
+                    "libelle1": "CP pris",
+                    "libelle2": "FIN DU MOIS",
+                    "valeur": 5,
+                    "valeurStyle": "valeur_kpi_class_standard",
+                    "afficheInfo": false,
+                    "tooltipInfo": null,
+                    "mode": "mode_mois"
+                },
+                {
+                    "libelle1": "CP pris",
+                    "libelle2": "FIN D'ANNEE",
+                    "valeur": 15,
+                    "valeurStyle": "valeur_kpi_class_standard",
+                    "afficheInfo": false,
+                    "tooltipInfo": null,
+                    "mode": "mode_annnee"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Ma fiche RH",
+        "position": 1,
+        "menuUrl": "url_fiche_rh"
+    },
+    {
+        "name": "Mes attestations",
+        "position": 2,
+        "menuUrl": "url_attestations"
+    },
+    {
+        "name": "Mon CV",
+        "position": 5,
+        "menuUrl": "url_cv"
+    },
+    {
+        "name": "OKR",
+        "position": 7,
+        "menuUrl": "url_okr"
+    }
+]

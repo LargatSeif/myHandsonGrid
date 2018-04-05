@@ -1,0 +1,96 @@
+[
+  {
+    "name": "Mes Congés",
+    "type": "CONGE",
+    "width": 4,
+    "position": 1,
+    "removable": false,
+    "estWidget": true,
+    "estAdaptable": false,
+    "ligne": 0,
+    "positionInitiale": -1
+  },
+  {
+    "name": "Mon CRA",
+    "type": "CRA",
+    "width": 4,
+    "position": 2,
+    "removable": false,
+    "estWidget": true,
+    "estAdaptable": false,
+    "ligne": 0,
+    "positionInitiale": -1
+  },
+  {
+    "name": "Mes Frais",
+    "type": "FRAIS",
+    "width": 2,
+    "position": 3,
+    "removable": true,
+    "estWidget": true,
+    "estAdaptable": false,
+    "ligne": 0,
+    "positionInitiale": 2,
+    "sousMenus": [
+      {
+        "menuLabel": "Mes frais annuels",
+        "menuUrl": "url_frais"
+      },
+      {
+        "menuLabel": "Consulter mes frais",
+        "menuUrl": "url_frais"
+      },
+      {
+        "menuLabel": "Déclarer mes frais",
+        "menuUrl": "url_frais"
+      }
+    ]
+  },
+  {
+    "name": "Les Cooptations",
+    "type": "COOPTATIONS",
+    "width": 4,
+    "position": 2,
+    "removable": true,
+    "estWidget": false,
+    "estAdaptable": false,
+    "ligne": 1,
+    "positionInitiale": 3,
+    "sousMenus": [
+      {
+        "menuLabel": "Toutes nos offres d'emploi",
+        "menuUrl": "url_cooptation"
+      },
+      {
+        "menuLabel": "Mes demandes de cooptation",
+        "menuUrl": "url_cooptation"
+      },
+      {
+        "menuLabel": "Faire une demande de cooptation",
+        "menuUrl": "url_cooptation"
+      }
+    ]
+  },
+  {
+    "name": "Nouveaux Talan's",
+    "type": "TALANS",
+    "width": 0,
+    "position": 0,
+    "removable": true,
+    "estWidget": false,
+    "estAdaptable": true,
+    "ligne": 0,
+    "positionInitiale": 4
+  },
+  {
+    "name": "Les Utiles",
+    "type": "UTILES",
+    "width": 2,
+    "position": 0,
+    "removable": true,
+    "estWidget": false,
+    "estAdaptable": false,
+    "ligne": 0,
+    "positionInitiale": 1
+  }
+]

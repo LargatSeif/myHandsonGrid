@@ -1,3 +1,240 @@
-<p>
-  table works!
-</p>
+<div class="container-fluid">
+
+    <div class="row" *ngIf="loading">
+        <div class="col-md-12" *ngIf="loading ">
+            <div class="container">
+
+                <ng-container *ngFor="let rub of data.rubriques">
+
+                    <p-table [value]="rub.lignes" dataKey="composantsRubrique.label">
+                        <ng-template pTemplate="header">
+                            <tr *ngIf="rub.libelleRubrique == 'PROJETS'">
+                                <th rowspan="2" class="text-center action-col">
+                                    <a *ngIf="rub.afficheAjouter">+</a>
+                                </th>
+                                <th colspan="2" class="text-center rubrique blue">{{ rub.libelleRubrique}}</th>
+                                <th class="text-center blue cell-taux" *ngFor="let col of header">{{col}}</th>
+                                <th class="text-center total" rowspan="2">Total</th>
+                            </tr>
+                            <tr *ngIf="rub.libelleRubrique == 'PROJETS'">
+                                <th class="text-center composants-rubrique blue" style="width:175px !important;">Client</th>
+                                <th class="text-center composants-rubrique blue" style="width:175px !important;">Mission</th>
+                                <th class="text-center cell-taux" *ngFor="let col of header;let i=index" [class.week-end]="col=='D' || col=='S'">
+                                    {{ i +1 }}
+                                </th>
+                            </tr>
+
+                            <tr *ngIf="rub.libelleRubrique == 'HORS PROJET'">
+                                <th class="text-center action-col">
+                                    <a *ngIf="rub.afficheAjouter">+</a>
+                                </th>
+                                <th rowspan="2" colspan="2" class="text-center rubrique blue">{{ rub.libelleRubrique}}</th>
+                                <th class="text-center no-bg" rowspan="2" *ngFor="let col of header"></th>
+                                <th rowspan="2" class="total"></th>
+                            </tr>
+
+                            <tr *ngIf="rub.libelleRubrique =='REGULARISATION' ">
+                                <th class="text-center action-col">
+                                    <a *ngIf="rub.afficheAjouter">+</a>
+                                </th>
+                                <th colspan="2" class="text-center rubrique blue">{{ rub.libelleRubrique}}</th>
+                                <th class="text-center no-bg" *ngFor="let col of header"></th>
+                                <th class="text-center total" rowspan="2"></th>
+                            </tr>
+
+                            <tr *ngIf="rub.libelleRubrique =='PROJET NON FACTURABLE' ">
+                                <th class="text-center action-col">
+                                    <a *ngIf="rub.afficheAjouter">+</a>
+                                </th>
+                                <th colspan="2" class="text-center rubrique blue">{{ rub.libelleRubrique}}</th>
+                                <th class="text-center no-bg" *ngFor="let col of header"></th>
+                                <th class="text-center total" rowspan="2"></th>
+                            </tr>
+
+
+                        </ng-template>
+
+                        <ng-template pTemplate="body" let-rowData let-expanded="expanded">
+                            <tr *ngIf="rub.libelleRubrique == 'HORS PROJET'" [pSelectableRow]="rowData">
+                                <td class="btn-group-cra">
+                                    <a *ngIf="rowData.afficheCompleterEtVider" class="btn" (click)="complet(rowData)">
+                                        <i class="icons20-complete"></i>
+                                    </a>
+
+                                    <a *ngIf="rowData.afficheCompleterEtVider" class="btn" (click)="clear(rowData)">
+                                        <i class="icons20-clear"></i>
+                                    </a>
+
+                                    <a *ngIf="rowData.afficheSupprimer" class="btn btn-delete" (click)="delete( $event ,rub)">
+                                        <i class="icons20-delete"></i>
+                                    </a>
+
+                                </td>
+                                <td #container class="text-center h-composants-rubrique" [tooltip]="rowData.composantsRubrique[0].tooltip" placement="bottom"
+                                    colspan="2">{{ rowData.composantsRubrique[0].label }}</td>
+
+                                <td class="text-center" *ngFor="let jour of rowData.jours.joursAffectation" [ngClass]="jour.styleClass" pEditableColumn>
+                                    <p-cellEditor>
+                                        <ng-template pTemplate="input" *ngIf="rowData.saisieParListe == true">
+                                            <select [(ngModel)]="jour.taux">
+                                                <option value="0" disabled>0</option>
+                                                <option *ngFor="let option of options" [value]="option.label">{{option.label}}</option>
+                                            </select>
+                                        </ng-template>
+                                        <ng-template pTemplate="input" *ngIf="rowData.saisieParListe == false">
+                                            <input type="text" [(ngModel)]="jour.taux">
+                                        </ng-template>
+                                        <ng-template pTemplate="output">
+                                            <span class="text-center">{{jour.taux}}</span>
+                                        </ng-template>
+                                    </p-cellEditor>
+                                </td>
+                                <td class="text-center cell-total" [ngClass]="rowData.jours.totaleStyle">{{rowData.jours.totale}}</td>
+
+                            </tr>
+
+                            <tr *ngIf="rub.libelleRubrique == 'PROJETS'" [pSelectableRow]="rowData">
+                                <td class="btn-group-cra">
+                                    <a *ngIf="rowData.afficheCompleterEtVider" class="btn" (click)="complet(rowData)">
+                                        <i class="icons20-complete"></i>
+                                    </a>
+
+                                    <a *ngIf="rowData.afficheCompleterEtVider" class="btn" (click)="clear(rowData)">
+                                        <i class="icons20-clear"></i>
+                                    </a>
+
+                                    <a *ngIf="rowData.afficheSupprimer" class="btn btn-delete" (click)="delete($event,rub)">
+                                        <i class="icons20-delete"></i>
+                                    </a>
+
+                                </td>
+                                <td class="text-center composants-rubrique" [tooltip]="rowData.composantsRubrique[1].tooltip" placement="bottom">
+                                    {{ rowData.composantsRubrique[0].label }}
+                                    <a *ngIf="rowData.sousLignes?.length >0" [pRowToggler]="rowData" class="btn btn-souslignes">
+                                        <i class="icons20-delete"></i>
+                                    </a>
+                                </td>
+                                <td class="text-center composants-rubrique" [tooltip]="rowData.composantsRubrique[1].tooltip" placement="bottom" title="">{{ rowData.composantsRubrique[1].label }}</td>
+                                <td class="text-center" *ngFor="let jour of rowData.jours.joursAffectation" [ngClass]="jour.styleClass" pEditableColumn>
+                                    <p-cellEditor>
+                                        <ng-template pTemplate="input" *ngIf="rowData.saisieParListe == true">
+                                            <select [(ngModel)]="jour.taux">
+                                                <option value="0" disabled>0</option>
+                                                <option *ngFor="let option of options" [value]="option.label">{{option.label}}</option>
+                                            </select>
+                                        </ng-template>
+                                        <ng-template pTemplate="input" *ngIf="rowData.saisieParListe == false">
+                                            <input type="text" [(ngModel)]="jour.taux">
+                                        </ng-template>
+                                        <ng-template pTemplate="output">
+                                            <span class="text-center">{{jour.taux}}</span>
+                                        </ng-template>
+                                    </p-cellEditor>
+                                </td>
+                                <td class="text-center cell-total" [ngClass]="rowData.jours.totaleStyle">{{rowData.jours.totale}}</td>
+                            </tr>
+
+                            <tr *ngIf="rub.libelleRubrique =='PROJET NON FACTURABLE'" [pSelectableRow]="rowData">
+                                <td class="btn-group-cra">
+                                    <a *ngIf="rowData.afficheCompleterEtVider" class="btn" (click)="complet(rowData)">
+                                        <i class="icons20-complete"></i>
+                                    </a>
+
+                                    <a *ngIf="rowData.afficheCompleterEtVider" class="btn" (click)="clear(rowData)">
+                                        <i class="icons20-clear"></i>
+                                    </a>
+
+                                    <a *ngIf="rowData.afficheSupprimer" class="btn btn-delete" (click)="delete( rowData ,rub)">
+                                        <i class="icons20-delete"></i>
+                                    </a>
+                                </td>
+                                <td class="text-center composants-rubrique" [tooltip]="rowData.composantsRubrique[0].tooltip" placement="bottom">{{ rowData.composantsRubrique[0].label }}</td>
+                                <td class="text-center composants-rubrique" [tooltip]="rowData.composantsRubrique[1].tooltip" placement="bottom">{{ rowData.composantsRubrique[1].label }}</td>
+                                <td class="text-center" *ngFor="let jour of rowData.jours.joursAffectation" [ngClass]="jour.styleClass" pEditableColumn>
+                                    <p-cellEditor>
+                                        <ng-template pTemplate="input" *ngIf="rowData.saisieParListe == true">
+                                            <select [(ngModel)]="jour.taux">
+                                                <option value="0" disabled>0</option>
+                                                <option *ngFor="let option of options" [value]="option.label">{{option.label}}</option>
+                                            </select>
+                                        </ng-template>
+                                        <ng-template pTemplate="input" *ngIf="rowData.saisieParListe == false">
+                                            <input type="text" [(ngModel)]="jour.taux">
+                                        </ng-template>
+                                        <ng-template pTemplate="output">
+                                            <span class="text-center">{{jour.taux}}</span>
+                                        </ng-template>
+                                    </p-cellEditor>
+                                </td>
+                                <td class="text-center cell-total" [ngClass]="rowData.jours.totaleStyle">{{rowData.jours.totale}}</td>
+                            </tr>
+
+                            <tr *ngIf="rub.libelleRubrique =='REGULARISATION' " [pSelectableRow]="rowData">
+                                <td class="btn-group-cra">
+                                    <a *ngIf="rowData.afficheCompleterEtVider" class="btn" (click)="complet(rowData)">
+                                        <i class="icons20-complete"></i>
+                                    </a>
+
+                                    <a *ngIf="rowData.afficheCompleterEtVider" class="btn" (click)="clear(rowData)">
+                                        <i class="icons20-clear"></i>
+                                    </a>
+
+                                    <a *ngIf="rowData.afficheSupprimer" class="btn btn-delete" (click)="delete(rowData,rub)">
+                                        <i class="icons20-delete"></i>
+                                    </a>
+
+                                </td>
+                                <td class="text-center composants-rubrique" [tooltip]="rowData.composantsRubrique[0].tooltip" placement="bottom">{{ rowData.composantsRubrique[0].label }}</td>
+                                <td class="text-center composants-rubrique" [tooltip]="rowData.composantsRubrique[1].tooltip" placement="bottom">{{ rowData.composantsRubrique[1].label }}</td>
+                                <td class="text-center" *ngFor="let jour of rowData.jours.joursAffectation" [ngClass]="jour.styleClass" pEditableColumn>
+                                    <p-cellEditor>
+                                        <ng-template pTemplate="input" *ngIf="rowData.saisieParListe == true">
+                                            <select [(ngModel)]="jour.taux">
+                                                <option value="0" disabled>0</option>
+                                                <option *ngFor="let option of options" [value]="option.label">{{option.label}}</option>
+                                            </select>
+                                        </ng-template>
+                                        <ng-template pTemplate="input" *ngIf="rowData.saisieParListe == false">
+                                            <input type="text" [(ngModel)]="jour.taux">
+                                        </ng-template>
+                                        <ng-template pTemplate="output">
+                                            <span class="text-center">{{jour.taux}}</span>
+                                        </ng-template>
+                                    </p-cellEditor>
+                                </td>
+                                <td class="text-center cell-total" [ngClass]="rowData.jours.totaleStyle">{{rowData.jours.totale}}</td>
+                            </tr>
+                        </ng-template>
+
+                        <ng-template pTemplate="rowexpansion" let-rowData>
+                            <tr *ngFor="let sousLigne of rowData.sousLignes" class="sous-ligne" [pSelectableRow]="rowData.sousLignes[0]">
+                                <td class="btn-group-cra">
+                                    <a *ngIf="sousLigne.afficheCompleterEtVider" class="btn" (click)="complet(sousLigne)">
+                                        <i class="icons20-complete"></i>
+                                    </a>
+
+                                    <a *ngIf="sousLigne.afficheCompleterEtVider" class="btn" (click)="clear(sousLigne)">
+                                        <i class="icons20-clear"></i>
+                                    </a>
+
+                                    <a *ngIf="sousLigne.afficheSupprimer" class="btn btn-delete" (click)="delete($event,rub)">
+                                        <i class="icons20-delete"></i>
+                                    </a>
+
+                                </td>
+                                <td colspan="2" class="text-center" [tooltip]="sousLigne.composantsRubrique[0].tooltip" placement="bottom">{{sousLigne.composantsRubrique[0].label}}</td>
+                                <td class="text-center" [ngClass]="jour.styleClass" *ngFor="let jour of sousLigne.jours.joursAffectation">
+                                    <span class="text-center">{{jour.taux}}</span>
+                                </td>
+                                <td class="text-center cell-total">{{sousLigne.jours.totale}}</td>
+                            </tr>
+                        </ng-template>
+
+                    </p-table>
+
+                </ng-container>
+
+            </div>
+        </div>
+    </div>
+</div>

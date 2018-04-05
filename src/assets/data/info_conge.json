@@ -1,0 +1,69 @@
+{
+    "titre": "Informations congés",
+    "libelle": "Ces informations s'appliquent aux stagiaires et autres collaborateurs Talan - loi du 21/08/17",
+    "infoConges": [
+        {
+            "titre": "Jours fériés 2017",
+            "infosListe": [
+                {
+                    "info1": "Lundi 1 janvier",
+                    "info2": "jour de l'An"
+                },
+                {
+                    "info1": "Dimanche 1 Avril",
+                    "info2": "Pâques"
+                },
+                {
+                    "info1": "Lundi 2 Avril",
+                    "info2": "Lundi de Pâques"
+                },
+                {
+                    "info1": "Mardi 1 Mai",
+                    "info2": "Lundi de Travail"
+                }
+            ]
+        },
+        {
+            "titre": "Mes droits pour une année complète",
+            "infosListe": [
+                {
+                    "info1": "Absence autorisée",
+                    "info2": "0.0 Jours ouvrés"
+                },
+                {
+                    "info1": "Congé Payé 2016/2017",
+                    "info2": "25.0 Jours ouvrés"
+                },
+                {
+                    "info1": "Congé Payé 2017/2018\n",
+                    "info2": "25.0 Jours ouvrés"
+                },
+                {
+                    "info1": "RTT 2018",
+                    "info2": "10.0 Jours ouvrés"
+                }
+            ]
+        },
+        {
+            "titre": "Congés Exceptionnels",
+            "infosListe": [
+                {
+                    "info1": "Congé paternité",
+                    "info2": "11.0 Jours calendaires"
+                },
+                {
+                    "info1": "Mariage enfant",
+                    "info2": "1.0 Jours ouvrés"
+                },
+                {
+                    "info1": "Mariage/Pacs salarié",
+                    "info2": "4.0 Jours ouvrés"
+                },
+                {
+                    "info1": "Naissance ou adoption",
+                    "info2": "3.0 Jours ouvrés"
+                }
+            ]
+        }
+    ]
+}

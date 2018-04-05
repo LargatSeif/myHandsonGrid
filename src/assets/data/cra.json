@@ -1,0 +1,74 @@
+
+{
+  "idPers": 9867,
+  "idCra": 2,
+  "status": {
+    "id": 2,
+    "label": "CRA rejeté"
+  },
+  "totalConge": 1,
+
+
+  "projets": [
+    {
+      "projetId": 123,
+      "title": "Ingénierie d'études finance",
+      "realisejh": 5
+    },
+    {
+      "projetId": 345,
+      "title": "Conseil Architecture Technique - UK",
+      "realisejh": 30
+    },
+    {
+      "projetId": 567,
+      "title": "Factory Talan",
+      "realisejh": 20
+    },
+    {
+      "projetId": 568,
+      "title": "Autre projet 1",
+      "realisejh": 2
+    },
+    {
+      "projetId": 569,
+      "title": "Autre projet 2",
+      "realisejh": 15
+    },
+    {
+      "projetId": 570,
+      "title": "Autre projet 3",
+      "realisejh": 2
+    },
+    {
+      "projetId": 571,
+      "title": "Autre projet 4",
+      "realisejh": 1
+    },
+    {
+      "projetId": 572,
+      "title": "Autre projet 6",
+      "realisejh": 40
+    },
+    {
+      "projetId": 573,
+      "title": "Autre projet 7",
+      "realisejh": 5
+    },
+    {
+      "projetId": 574,
+      "title": "Autre projet 8",
+      "realisejh": 11
+    },
+    {
+      "projetId": 575,
+      "title": "Autre projet 9",
+      "realisejh": 0
+    },
+    {
+      "projetId": 576,
+      "title": "Autre projet 10",
+      "realisejh": 10
+    }
+  ]
+}

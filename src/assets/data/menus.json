@@ -1,0 +1,178 @@
+[
+  {
+    "menuLabel": "Ressources Humaines",
+    "menuUrl": "url_rh",
+    "sousMenus": [
+      {
+        "menuLabel": "Créer un collaborateur",
+        "menuUrl": "url_rh"
+      },
+      {
+        "menuLabel": "Rechercher un collaborateur",
+        "menuUrl": "url_rh"
+      },
+      {
+        "menuLabel": "Gérer la paie",
+        "menuUrl": "url_rh"
+      },
+      {
+        "menuLabel": "Gérer les candidats",
+        "menuUrl": "url_rh"
+      },
+      {
+        "menuLabel": "Gérer les demandes",
+        "menuUrl": "url_rh"
+      },
+      {
+        "menuLabel": "Gérer les demandes de cooptation",
+        "menuUrl": "url_rh"
+      },
+      {
+        "menuLabel": "Gérer les demandes d'attestation",
+        "menuUrl": "url_rh"
+      },
+      {
+        "menuLabel": "Reporting",
+        "menuUrl": "url_rh"
+      },
+      {
+        "menuLabel": "Délégation",
+        "menuUrl": "url_rh"
+      }
+    ]
+  },
+  {
+    "menuLabel": "Prospects/Clients",
+    "menuUrl": "url_client",
+    "sousMenus": [
+      {
+        "menuLabel": "Créer un prospect",
+        "menuUrl": "url_client"
+      },
+      {
+        "menuLabel": "Rechercher un prospect/client",
+        "menuUrl": "url_client"
+      },
+      {
+        "menuLabel": "Rechercher un contact",
+        "menuUrl": "url_client"
+      }
+    ]
+  },
+  {
+    "menuLabel": "Contrats Cadres",
+    "menuUrl": "url_cadres",
+    "sousMenus": [
+      {
+        "menuLabel": "Gérer les contrats",
+        "menuUrl": "url_cadres",
+        "sousMenus": [
+          {
+            "menuLabel": "Créer un contrat cadre",
+            "menuUrl": "url_cadres"
+          },
+          {
+            "menuLabel": "Rechercher un contrat cadre/avenant",
+            "menuUrl": "url_cadres"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "menuLabel": "Missions",
+    "menuUrl": "url_mission",
+    "sousMenus": [
+      {
+        "menuLabel": "Gérer les missions",
+        "menuUrl": "url_mission"
+      },
+      {
+        "menuLabel": "Gérer les projets / références",
+        "menuUrl": "url_mission"
+      },
+      {
+        "menuLabel": "Gérer les frais",
+        "menuUrl": "url_mission"
+      },
+      {
+        "menuLabel": "Gérer les temps",
+        "menuUrl": "url_mission"
+      },
+      {
+        "menuLabel": "Gérer Bonus",
+        "menuUrl": "url_mission"
+      },
+      {
+        "menuLabel": "Suivre le Chiffre d'affaires",
+        "menuUrl": "url_mission"
+      }
+    ]
+  },
+  {
+    "menuLabel": "Achats",
+    "menuUrl": "url_achat",
+    "sousMenus": [
+      {
+        "menuLabel": "Gérer les Fournisseurs",
+        "menuUrl": "url_achat"
+      },
+      {
+        "menuLabel": "Contrats Fournisseurs",
+        "menuUrl": "url_achat"
+      },
+      {
+        "menuLabel": "Facturation Fournisseur",
+        "menuUrl": "url_achat"
+      }
+    ]
+  },
+  {
+    "menuLabel": "Facturation",
+    "menuUrl": "url_facturation",
+    "sousMenus": [
+      {
+        "menuLabel": "Rechercher Proforma / Facture",
+        "menuUrl": "url_facturation"
+      },
+      {
+        "menuLabel": "Valider Proforma / Facture",
+        "menuUrl": "url_facturation"
+      },
+      {
+        "menuLabel": "Créer Proforma",
+        "menuUrl": "url_facturation"
+      },
+      {
+        "menuLabel": "Modifier facturation",
+        "menuUrl": "url_facturation"
+      },
+      {
+        "menuLabel": "Suivi des règlements",
+        "menuUrl": "url_facturation"
+      },
+      {
+        "menuLabel": "Comptes Comptables",
+        "menuUrl": "url_facturation"
+      }
+    ]
+  },
+  {
+    "menuLabel": "Clôture",
+    "menuUrl": "url_cloture",
+    "sousMenus": [
+      {
+        "menuLabel": "Cloture de production",
+        "menuUrl": "url_cloture"
+      },
+      {
+        "menuLabel": "Clôture facturation",
+        "menuUrl": "url_cloture"
+      },
+      {
+        "menuLabel": "Journaux de clôture",
+        "menuUrl": "url_cloture"
+      }
+    ]
+  }
+]
