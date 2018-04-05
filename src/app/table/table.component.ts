@@ -44,10 +44,7 @@ export class TableComponent implements OnInit {
           op = new option(item, item);
           this.options.push(op);
         });
-
-
         this.header = this.getDateDaysN(this.data.mois, this.data.annee);
-
         console.log(this.data);
       }
     );
